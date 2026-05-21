@@ -28,18 +28,42 @@ O jogador deve organizar e conectar esses resistores na área de montagem para c
 
 ```mermaid
 flowchart LR
-    Jogador([Jogador])
-    
-    Jogador --> UC1(Iniciar Nova Partida)
-    Jogador --> UC2(Selecionar Dificuldade)
-    Jogador --> UC3(Adicionar Resistor na Área de Montagem)
-    Jogador --> UC4(Remover Resistor da Área de Montagem)
-    Jogador --> UC5(Criar Associação Série/Paralelo)
-    Jogador --> UC6(Verificar Solução do Circuito)
-    
-    UC1 ..->|> include| UC2
-    UC6 ..->|> extend| UC7(Avançar para Próximo Nível)
+    %% Ator
+    Jogador(("👤<br>Jogador"))
 
+    %% Limite do Sistema
+    subgraph Sistema [Jogo Resistor]
+        direction LR
+        
+        %% Casos de Uso (Formato de pílula)
+        UC1([Iniciar nível])
+        UC2([Ver Resistência])
+        UC3([Montar Circuito])
+        UC4([Solicitar Validação])
+        
+        UC5([Gerar Circuito])
+        
+        UC6([Definir Resistores<br>Apresentados])
+        UC7([Calcular Resistencia<br>inicial])
+        
+        UC8([Comparar<br>Resultados])
+        UC9([Calcular<br>Resistencia])
+    end
+
+    %% Associações (Linha contínua)
+    Jogador --- UC1
+    Jogador --- UC2
+    Jogador --- UC3
+    Jogador --- UC4
+
+    %% Relações de Inclusão (Linha tracejada com seta)
+    UC1 -. "<<include>>" .-> UC5
+    
+    UC5 -. "<<include>>" .-> UC6
+    UC5 -. "<<include>>" .-> UC7
+    
+    UC4 -. "<<include>>" .-> UC8
+    UC4 -. "<<include>>" .-> UC9
 ```
 
 Detalhamento dos casos de uso:
@@ -48,51 +72,3 @@ Detalhamento dos casos de uso:
 
 
 
-## Diagrama de Classes
-```mermaid
-classDiagram
-    class Componente {
-        <<abstract>>
-        +calcularResistencia() double
-    }
-
-    class Resistor {
-        -double valor
-        +Resistor(v: double)
-        +calcularResistencia() double
-    }
-
-    class Associacao {
-        <<abstract>>
-        #QList componentes
-        +adicionarComponente(c: Componente)
-        +removerComponente(c: Componente)
-        +calcularResistencia() double
-    }
-
-    class AssociacaoSerie {
-        +calcularResistencia() double
-    }
-
-    class AssociacaoParalelo {
-        +calcularResistencia() double
-    }
-
-    class GerenciadorDeFase {
-        -double resistenciaAlvo
-        -int dificuldade
-        +iniciarFase(dificuldade: int)
-        +verificarVitoria(circuito: Componente) boolean
-    }
-
-    class GeradorDeCircuito {
-        +gerarDesafio(dificuldade: int)
-        -gerarCircuitoAleatorio() Componente
-    }
-
-    Componente <|-- Resistor
-    Componente <|-- Associacao
-    Associacao <|-- AssociacaoSerie
-    Associacao <|-- AssociacaoParalelo
-    Associacao o-- Componente : Contem
-    GerenciadorDeFase --> GeradorDeCircuito : Utiliza
