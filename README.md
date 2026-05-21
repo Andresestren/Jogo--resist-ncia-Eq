@@ -1,6 +1,6 @@
 #  Jogo de Resistência Equivalente
 
-## 📖 Sobre o Projeto
+##  Sobre o Projeto
 Este é um jogo educativo desenvolvido em **C++** com interface gráfica em **Qt**, criado como projeto para a disciplina de Programação Orientada a Objetos. O objetivo principal é desafiar o jogador a montar circuitos elétricos utilizando associações em série e paralelo para atingir um valor de resistência alvo.
 
 ##  Como Funciona
