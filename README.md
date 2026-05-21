@@ -41,6 +41,13 @@ flowchart LR
     UC6 ..->|> extend| UC7(Avançar para Próximo Nível)
 
 ```
+
+Detalhamento dos casos de uso:
+
+- [ Montar Circuito ](uc01.md)
+
+
+
 ## Diagrama de Classes
 ```mermaid
 classDiagram
