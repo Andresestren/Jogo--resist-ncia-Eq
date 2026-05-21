@@ -1,0 +1,32 @@
+## Fluxo Principal
+
+1. O sistema apresenta a Resistência Alvo (em Ohms) e o inventário de resistores;
+2. O jogador seleciona e arrasta resistores do inventário para a área de montagem;
+3. O jogador conecta os resistores na área de montagem, formando associações em série ou paralelo;
+4. O jogador clica no botão para solicitar a validação do circuito;
+5. O sistema calcula a resistência equivalente de toda a estrutura montada pelo jogador;
+6. O sistema compara o valor calculado com a Resistência Alvo;
+7. Caso os valores coincidam, o sistema exibe uma mensagem de sucesso e calcula a pontuação;
+8. Caso os valores sejam diferentes, o sistema informa que a resistência está incorreta e contabiliza uma tentativa falha;
+9. Em caso de erro, o fluxo retorna ao item 2, permitindo que o jogador adicione, remova ou reorganize os resistores até acertar;
+10. A rodada é encerrada quando o circuito correto é validado.
+
+---
+
+## Fluxos Alternativos
+
+* **4a. Circuito Aberto:** No passo 4, se o jogador solicitar a validação de um circuito que possui pontas soltas (aberto) ou peças não conectadas à fonte, o sistema exibe o aviso *"Circuito Incompleto"* e retorna ao passo 2, sem contabilizar erro.
+
+---
+
+## Pós-condições
+
+Após a execução deste caso de uso com sucesso, o status da fase é marcado como concluído, a pontuação é atualizada e o jogador fica apto a avançar para o próximo nível.
+
+---
+
+## Regras de Negócio
+
+* **Limite de Inventário:** O jogador só pode utilizar a quantidade exata de resistores disponibilizada no inventário daquela fase específica.
+* **Tolerância de Ponto Flutuante:** Devido à imprecisão de cálculos de ponto flutuante (`double`) no C++, a comparação entre o circuito do jogador e o alvo deve prever uma margem de tolerância (exemplo: aceitar variação de **+/- 0.01 Ohms**).
+* **Cálculo de Pontuação:** A pontuação final da rodada será calculada com base no tempo gasto ou no número de tentativas falhas (validações incorretas) realizadas pelo jogador.
