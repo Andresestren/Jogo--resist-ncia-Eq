@@ -8,7 +8,7 @@ Em cada nível, o jogo fornece um **Valor Alvo de Resistência Equivalente (R_eq
 O jogador deve organizar e conectar esses resistores na área de montagem para criar um circuito que resulte no valor exato pedido.
 
 ##  Principais Funcionalidades
-- **Geração Aleatória com Garantia de Solução:** O motor do jogo não utiliza fases estáticas. Ele gera aleatoriamente um circuito válido por baixo dos panos, calcula sua resistência e depois "desmonta" as peças para o jogador resolver. 
+- **Geração Aleatória com Garantia de Solução:** O motor do jogo não utiliza fases estáticas. Ele gera aleatoriamente um circuito válido, calcula sua resistência e depois desmonta o circuito para o jogador resolver. 
 - **Níveis de Dificuldade:** O algoritmo ajusta a complexidade das associações (quantidade de malhas e nós) de acordo com o nível escolhido.
 - **Resistores Iscas:** Para aumentar o desafio, resistores extras que não faziam parte do circuito original gerado são misturados no inventário do jogador.
 
@@ -19,9 +19,9 @@ O jogador deve organizar e conectar esses resistores na área de montagem para c
 * **Componente Elétrico:** A abstração base do jogo. Tudo o que tem resistência é um componente.
 * **Resistor:** A entidade básica, com um valor fixo de resistência em Ohms.
 * **Associação (Circuito):** Agrupamento de componentes (Série ou Paralelo). Se comporta como um único componente, possuindo uma resistência equivalente.
-* **Inventário/Caixa de Peças:** Coleção de resistores disponíveis na fase (peças reais + iscas).
+* **Inventário/Caixa de Peças:** Coleção de resistores disponíveis na fase.
 * **Fase/Nível:** Gerencia o estado atual do jogo, a Resistência Alvo, a dificuldade e verifica a vitória.
-* **Gerador de Circuitos:** O "motor" que cria os quebra-cabeças aleatórios, garantindo uma solução válida.
+* **Gerador de Circuitos:**  cria os circuitos aleatórios, garantindo uma solução válida.
 
 ---
 ##  Diagrama de Casos de Uso
