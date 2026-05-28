@@ -24,7 +24,7 @@ O jogador deve organizar e conectar esses resistores na área de montagem para c
 * **Gerador de Circuitos:**  cria os circuitos aleatórios, garantindo uma solução válida.
 
 ---
-##  Diagrama de Casos de Uso
+##  Diagrama de Casos de Uso.
 
 ```mermaid
 flowchart LR
