@@ -1,48 +1,81 @@
-## Diagrama de Classes
+
+
+##  Modelagem Orientada a Objetos
+
+
+
+### 1. Diagrama de Classes
+
+O diagrama abaixo descreve a estrutura estática do sistema.
+
 ```mermaid
 classDiagram
-    class Componente {
+    class ComponenteEletrico {
         <<abstract>>
-        +calcularResistencia() double
+        +calcularResistencia() double*
+        +validarConexao() boolean*
     }
-
     class Resistor {
-        -double valor
-        +Resistor(v: double)
+        -resistencia: double
+        +Resistor(valor: double)
         +calcularResistencia() double
+        +validarConexao() boolean
     }
-
     class Associacao {
         <<abstract>>
-        #QList componentes
-        +adicionarComponente(c: Componente)
-        +removerComponente(c: Componente)
-        +calcularResistencia() double
+        #componentes: List~ComponenteEletrico~
+        +adicionarComponente(c: ComponenteEletrico) void
+        +removerComponente(c: ComponenteEletrico) void
+        +validarConexao() boolean
     }
-
     class AssociacaoSerie {
         +calcularResistencia() double
     }
-
-    class AssociacaoParalelo {
+    class AssociacaoParalela {
         +calcularResistencia() double
     }
-
-    class GerenciadorDeFase {
-        -double resistenciaAlvo
-        -int dificuldade
-        +iniciarFase(dificuldade: int)
-        +verificarVitoria(circuito: Componente) boolean
+    class Inventario {
+        -resistoresDisponiveis: List~Resistor~
+        +obterResistor(id: int) Resistor
+        +devolverResistor(r: Resistor) void
+        +verificarLimite() boolean
+    }
+    class Fase {
+        -resistenciaAlvo: double
+        -tentativas: int
+        -concluida: boolean
+        -dificuldade: int
+        -margemErro: double
+        +Fase(dificuldade: int)
+        +validarCircuito(circuitoMontado: ComponenteEletrico) boolean
+        +calcularPontuacao() int
+    }
+    class GeradorCircuitos {
+        +gerarFase(dificuldade: int) Fase
+        -gerarCircuitoValido(dificuldade: int) ComponenteEletrico
+        -gerarIscas(quantidade: int) List~Resistor~
     }
 
-    class GeradorDeCircuito {
-        +gerarDesafio(dificuldade: int)
-        -gerarCircuitoAleatorio() Componente
-    }
-
-    Componente <|-- Resistor
-    Componente <|-- Associacao
+    %% Relacionamentos de Herança (Generalização)
+    ComponenteEletrico <|-- Resistor
+    ComponenteEletrico <|-- Associacao
     Associacao <|-- AssociacaoSerie
-    Associacao <|-- AssociacaoParalelo
-    Associacao o-- Componente : Contem
-    GerenciadorDeFase --> GeradorDeCircuito : Utiliza
+    Associacao <|-- AssociacaoParalela
+
+    %% Aplicação do Composite Pattern
+    Associacao o-- ComponenteEletrico : agrupa
+    
+    %% Composições e Dependências de Controle
+    Fase *-- Inventario : possui
+    GeradorCircuitos ..> Fase : instancia
+    Fase ..> ComponenteEletrico : valida
+
+  ```
+
+
+
+
+
+
+
+
