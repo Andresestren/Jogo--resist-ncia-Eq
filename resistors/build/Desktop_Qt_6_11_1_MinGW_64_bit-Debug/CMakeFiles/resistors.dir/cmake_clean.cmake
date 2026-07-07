@@ -1,0 +1,32 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/resistors_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/resistors_autogen.dir/ParseCache.txt"
+  "resistors_autogen"
+  "CMakeFiles/resistors.dir/fiografico.cpp.obj"
+  "CMakeFiles/resistors.dir/fiografico.cpp.obj.d"
+  "CMakeFiles/resistors.dir/main.cpp.obj"
+  "CMakeFiles/resistors.dir/main.cpp.obj.d"
+  "CMakeFiles/resistors.dir/mainwindow.cpp.obj"
+  "CMakeFiles/resistors.dir/mainwindow.cpp.obj.d"
+  "CMakeFiles/resistors.dir/parallelcircuit.cpp.obj"
+  "CMakeFiles/resistors.dir/parallelcircuit.cpp.obj.d"
+  "CMakeFiles/resistors.dir/resistorgrafico.cpp.obj"
+  "CMakeFiles/resistors.dir/resistorgrafico.cpp.obj.d"
+  "CMakeFiles/resistors.dir/resistors_autogen/mocs_compilation.cpp.obj"
+  "CMakeFiles/resistors.dir/resistors_autogen/mocs_compilation.cpp.obj.d"
+  "CMakeFiles/resistors.dir/resitor.cpp.obj"
+  "CMakeFiles/resistors.dir/resitor.cpp.obj.d"
+  "CMakeFiles/resistors.dir/seriescircuit.cpp.obj"
+  "CMakeFiles/resistors.dir/seriescircuit.cpp.obj.d"
+  "libresistors.dll.a"
+  "resistors.exe"
+  "resistors.exe.manifest"
+  "resistors.pdb"
+  "resistors_autogen/mocs_compilation.cpp"
+  "resistors_autogen/timestamp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/resistors.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

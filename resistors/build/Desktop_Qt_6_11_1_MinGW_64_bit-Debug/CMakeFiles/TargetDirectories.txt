@@ -1,0 +1,5 @@
+C:/Users/Allan/Desktop/backup Prog/resistors/build/Desktop_Qt_6_11_1_MinGW_64_bit-Debug/CMakeFiles/resistors.dir
+C:/Users/Allan/Desktop/backup Prog/resistors/build/Desktop_Qt_6_11_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/Allan/Desktop/backup Prog/resistors/build/Desktop_Qt_6_11_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Allan/Desktop/backup Prog/resistors/build/Desktop_Qt_6_11_1_MinGW_64_bit-Debug/CMakeFiles/resistors_autogen_timestamp_deps.dir
+C:/Users/Allan/Desktop/backup Prog/resistors/build/Desktop_Qt_6_11_1_MinGW_64_bit-Debug/CMakeFiles/resistors_autogen.dir
