@@ -1,3 +1,0 @@
-C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\resistors.dir/objects.a
-C:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\resistors.dir/objects.a @CMakeFiles\resistors.dir\objects1.rsp
-C:\Qt\Tools\mingw1310_64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\resistors.dir/objects.a -Wl,--no-whole-archive -o resistors.exe -Wl,--out-implib,libresistors.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\resistors.dir\linkLibs.rsp
