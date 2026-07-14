@@ -14,7 +14,7 @@ public:
 		_resistance = value;
 	}
 
-	double getResistance() const override {
+    double getResistance() const override {
 		return _resistance;
 	}
 

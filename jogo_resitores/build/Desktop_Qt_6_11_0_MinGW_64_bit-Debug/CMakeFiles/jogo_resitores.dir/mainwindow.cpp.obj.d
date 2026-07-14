@@ -389,7 +389,27 @@ CMakeFiles/jogo_resitores.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsScene \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
  C:/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
- C:/Users/Andre\ Sestren/Desktop/jogo\ resistores/jogo_resitores/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/jogo_resitores_autogen/include/ui_mainwindow.h \
+ C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\gamecontroller.h \
+ C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\abstractcircuit.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
+ C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
+ C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
+ C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\seriescircuit.h \
+ C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\resistor.h \
+ C:/Users/ANDRES~1/Desktop/JOGORE~1/JOGO_R~1/build/DESKTO~1/JOGO_R~1/include/./ui_mainwindow.h \
  C:/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QApplication \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qapplication.h \
@@ -428,25 +448,6 @@ CMakeFiles/jogo_resitores.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QStatusBar \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qstatusbar.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QWidget \
- C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\seriescircuit.h \
- C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\abstractcircuit.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\resistor.h \
  C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\parallelcircuit.h \
  C:\Users\Andre\ Sestren\Desktop\jogo\ resistores\jogo_resitores\circuitgraphicsitem.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QGraphicsItem \

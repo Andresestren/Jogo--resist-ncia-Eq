@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsScene> // ADICIONANDO GRPHICSCENE
+#include <QGraphicsScene>
+
+#include "gamecontroller.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,13 +28,14 @@ private slots:
     void on_label_linkActivated(const QString &link);
 
 private:
+    // Junta os 2 itens selecionados em série ou paralelo, dependendo de emSerie.
+    // Substitui o código que estava duplicado entre os dois botões.
+    void combinarSelecionados(bool emSerie);
+
     Ui::MainWindow *ui;
-    QGraphicsScene *cena; // ADICIONANDO GRAPHISCENEN
+    QGraphicsScene *cena;
 
-    double alvoAtual; // LINHA PARA GUARDAR O GABARITO do circuito
-
-
-
+    GameController jogo; // toda a regra do jogo (alvo, geração de circuito, vitória) mora aqui
 };
 
 #endif // MAINWINDOW_H

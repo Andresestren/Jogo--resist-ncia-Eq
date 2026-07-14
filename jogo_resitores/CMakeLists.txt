@@ -19,6 +19,8 @@ qt_add_executable(jogo_resitores
         parallelcircuit.h
         parallelcircuit.cpp
         circuitgraphicsitem.h
+        gamecontroller.h
+        gamecontroller.cpp
 )
 
 target_link_libraries(jogo_resitores

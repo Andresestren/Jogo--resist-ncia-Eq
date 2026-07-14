@@ -1,11 +1,8 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-
 #include "seriescircuit.h"
 #include "parallelcircuit.h"
-
-
 
 // Nossas bibliotecas e classes
 #include "circuitgraphicsitem.h"
@@ -24,85 +21,27 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 2. Cria a nossa "Área de Trabalho" (Cena)
     cena = new QGraphicsScene(this);
-    cena->setSceneRect(0, 0, 800, 600); // Define o tamanho da prancheta virtualZ
+    cena->setSceneRect(0, 0, 800, 600); // Define o tamanho da prancheta virtual
 
     // 3. Conecta a tela visual (a "lente") com a nossa cena invisível
     ui->graphicsView->setScene(cena);
 
-    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff); //DESLIGA ROLAGEM
-    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);    //DESLIGA ROLAGEM
+    ui->graphicsView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-
-
-    // 3. Coloca uma mensagem inicial para o jogador em vez de gerar o nível
     ui->label->setText("Bem-vindo! Aperte 'Nova Partida' para começar.");
-
-    // (Apagamos a chamada do botão daqui!)
 }
-
-
-
-
-
-
-
-
-
-
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-void MainWindow::on_pushButton_clicked()
-{
-    //1. Pega todos os itens que o jogador deixou "azuis" (selecionados) na prancheta
-        QList<QGraphicsItem*> selecionados = cena->selectedItems();
 
-    if(selecionados.size() != 2) {
-        ui->label->setText("Erro: Selecione exatamente 2 blocos!"); // Troque 'label' se renomeou
-        return;
-    }
-
-    // 2. Converte os itens genéricos para as nossas caixas de circuito
-    CircuitGraphicsItem* item1 = dynamic_cast<CircuitGraphicsItem*>(selecionados[0]);
-    CircuitGraphicsItem* item2 = dynamic_cast<CircuitGraphicsItem*>(selecionados[1]);
-
-    // 3. A MÁGICA DA O.O.: Cria o circuito matemático
-    SeriesCircuit* novoSerie = new SeriesCircuit();
-    novoSerie->addComponent(item1->circuit);
-    novoSerie->addComponent(item2->circuit);
-
-    // 4. RECICLAGEM VISUAL: O item 1 absorve o novo circuito e fica no mesmo lugar!
-    item1->circuit = novoSerie;
-    item1->update(); // OBRIGATÓRIO: Avisa o Qt para repintar o texto com o novo valor!
-
-    // 5. Limpa os rastros: remove o item 2 da tela e da memória
-    cena->removeItem(item2);
-    delete item2;
-
-    // Limpa a seleção azul para a próxima jogada
-    cena->clearSelection();
-    ui->label->setText("Associado em Série com sucesso!");
-
-    // --- VERIFICAÇÃO DE VITÓRIA ---
-    if (cena->items().size() == 1) { // Se sobrou só um bloco na tela inteira
-        double valorFinal = item1->circuit->getResistance();
-
-        if (valorFinal == alvoAtual) { // Pode mudar para o valor que desejar
-            ui->label->setText("Parabéns! Circuito fechado no valor exato!");
-        } else {
-            ui->label->setText(QString("Falhou! Circuito fechado em %1 ohms.").arg(valorFinal));
-        }
-    }
-}
-
-
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::combinarSelecionados(bool emSerie)
 {
     QList<QGraphicsItem*> selecionados = cena->selectedItems();
 
-    if(selecionados.size() != 2) {
+    if (selecionados.size() != 2) {
         ui->label->setText("Erro: Selecione exatamente 2 blocos!");
         return;
     }
@@ -110,23 +49,37 @@ void MainWindow::on_pushButton_2_clicked()
     CircuitGraphicsItem* item1 = dynamic_cast<CircuitGraphicsItem*>(selecionados[0]);
     CircuitGraphicsItem* item2 = dynamic_cast<CircuitGraphicsItem*>(selecionados[1]);
 
-    // A única diferença: criamos um ParallelCircuit!
-    ParallelCircuit* novoParalelo = new ParallelCircuit();
-    novoParalelo->addComponent(item1->circuit);
-    novoParalelo->addComponent(item2->circuit);
+    // Cria o circuito matemático certo, série ou paralelo, conforme o botão apertado
+    AbstractCircuit* novoCircuito;
+    if (emSerie) {
+        SeriesCircuit* s = new SeriesCircuit();
+        s->addComponent(item1->circuit);
+        s->addComponent(item2->circuit);
+        novoCircuito = s;
+    } else {
+        ParallelCircuit* p = new ParallelCircuit();
+        p->addComponent(item1->circuit);
+        p->addComponent(item2->circuit);
+        novoCircuito = p;
+    }
 
-    item1->circuit = novoParalelo;
-    item1->update(); // Repinta com o novo valor
+    // RECICLAGEM VISUAL: o item 1 absorve o novo circuito e fica no mesmo lugar
+    item1->circuit = novoCircuito;
+    item1->update(); // repinta o texto com o novo valor
 
+    // Remove o item 2 da tela e da memória
     cena->removeItem(item2);
     delete item2;
 
     cena->clearSelection();
-    ui->label->setText("Associado em Paralelo com sucesso!");
+    ui->label->setText(emSerie ? "Associado em Série com sucesso!"
+                                : "Associado em Paralelo com sucesso!");
 
-    if (cena->items().size() == 1) {
-        double valorFinal = item1->circuit->getResistance();
-        if (valorFinal == alvoAtual) { // Pode mudar para o valor que desejar
+    // --- VERIFICAÇÃO DE VITÓRIA ---
+    if (cena->items().size() == 1) {  // VERIFICA SE HÁ APENAS 1 PEÇA EM JOGO PARA TERMINAR A PARTIDA
+        double valorFinal = item1->circuit->getResistance();  // PERGUNTA PARA GAMECONTROLER SE ESSE É O VALOR CORRETO
+
+        if (jogo.verificarVitoria(valorFinal)) {  //GAMECONTROLER COMPARA E RESPONDE COM TRUE OU FALSE
             ui->label->setText("Parabéns! Circuito fechado no valor exato!");
         } else {
             ui->label->setText(QString("Falhou! Circuito fechado em %1 ohms.").arg(valorFinal));
@@ -134,40 +87,36 @@ void MainWindow::on_pushButton_2_clicked()
     }
 }
 
+void MainWindow::on_pushButton_clicked()
+{
+    combinarSelecionados(true); // true = série
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    combinarSelecionados(false); // false = paralelo
+}
 
 void MainWindow::on_pushButton_3_clicked()
 {
     cena->clear(); // Limpa a prancheta
 
-    RandomSeriesCircuit* circuitoGerador = nullptr;
-    vector<AbstractCircuit*> pecas;
+    vector<AbstractCircuit*> pecas = jogo.gerarNovoCircuito();
 
-    // ---FILTRO ---
-    // Ele vai ficar preso neste laço  até o gerador  cuspir um circuito que tenha entre 4 e 6 peças
+    ui->label_2->setText(QString("Objetivo: Alcançar %1 ohms").arg(jogo.getAlvo()));
 
-    while (true) {
-        // Gera um circuito com potencial grande
-        circuitoGerador = new RandomSeriesCircuit(3, 3);
 
-        // Pede as peças
-        pecas = circuitoGerador->getBaseResistors();
+    //embaralha antes de jogar na tela
 
-        // Verifica se a quantidade está conforme
-        if (pecas.size() == 4) {
-            break; // Tamanho cert Quebra o laço e continua o jogo.
-        } else {
-            // Se veio muito fácil ou muito difícil, deletamos da memória e o laço repete
-            delete circuitoGerador;
-        }
+    for (size_t i = pecas.size() - 1; i > 0; i--) {
+        size_t j = rand() % (i + 1);
+        std::swap(pecas[i], pecas[j]);
     }
-    // -------------------------------------
 
 
-    alvoAtual = circuitoGerador->getResistance();
-    ui->label_2->setText(QString("Objetivo: Alcançar %1 ohms").arg(alvoAtual));
 
-
-    for(size_t i = 0; i < pecas.size(); i++) {
+        //coloca as peças na tela
+    for (size_t i = 0; i < pecas.size(); i++) {
         CircuitGraphicsItem* itemVisual = new CircuitGraphicsItem(pecas[i]);
 
         int posX = 130 + ((i % 4) * 140);
@@ -178,9 +127,7 @@ void MainWindow::on_pushButton_3_clicked()
     }
 }
 
-
 void MainWindow::on_label_linkActivated(const QString &link)
 {
 
 }
-

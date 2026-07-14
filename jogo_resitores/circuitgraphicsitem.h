@@ -37,9 +37,6 @@ public:
             painter->setBrush(QColor("#f0f0f0")); // Cinza padrão
         }
 
-        // Desenha a borda da caixa com cantos arredondados
-        painter->setPen(QPen(Qt::darkGray, 2));
-        painter->drawRoundedRect(rect, 8, 8);
 
         // Prepara para desenhar o texto
         if (isSelected()) {
@@ -50,7 +47,26 @@ public:
 
         // Busca o valor da resistência do seu código de Orientação a Objetos
         double res = circuit->getResistance();
-        QString texto = QString("Componente:\n%1 ohms").arg(res);
+        QString texto = QString("\n%1 ohms").arg(res);
+
+
+
+
+        // Define uma caneta mais grossa para o símbolo
+        painter->setPen(QPen(Qt::black, 3));
+
+        // Desenha os terminais (linhas horizontais)
+        painter->drawLine(20, 25, 40, 25); // Linha esquerda
+        painter->drawLine(80, 25, 100, 25); // Linha direita
+
+        // Desenha o corpo do resistor IEC (um retângulo no meio)
+        painter->drawRect(40, 15, 40, 20);
+
+        // Se quiser usar o símbolo em Zigue-Zague (padrão americano),
+        // você usaria uma sequência de painter->drawLine(...) subindo e descendo!
+
+
+
 
         // Imprime o texto bem no centro do retângulo
         painter->drawText(rect, Qt::AlignCenter, texto);

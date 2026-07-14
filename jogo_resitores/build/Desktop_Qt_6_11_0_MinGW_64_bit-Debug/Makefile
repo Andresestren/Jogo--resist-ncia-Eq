@@ -199,6 +199,30 @@ jogo_resitores_autogen/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\jogo_resitores_autogen.dir\build.make CMakeFiles/jogo_resitores_autogen.dir/build
 .PHONY : jogo_resitores_autogen/fast
 
+gamecontroller.obj: gamecontroller.cpp.obj
+.PHONY : gamecontroller.obj
+
+# target to build an object file
+gamecontroller.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\jogo_resitores.dir\build.make CMakeFiles/jogo_resitores.dir/gamecontroller.cpp.obj
+.PHONY : gamecontroller.cpp.obj
+
+gamecontroller.i: gamecontroller.cpp.i
+.PHONY : gamecontroller.i
+
+# target to preprocess a source file
+gamecontroller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\jogo_resitores.dir\build.make CMakeFiles/jogo_resitores.dir/gamecontroller.cpp.i
+.PHONY : gamecontroller.cpp.i
+
+gamecontroller.s: gamecontroller.cpp.s
+.PHONY : gamecontroller.s
+
+# target to generate assembly for a file
+gamecontroller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\jogo_resitores.dir\build.make CMakeFiles/jogo_resitores.dir/gamecontroller.cpp.s
+.PHONY : gamecontroller.cpp.s
+
 jogo_resitores_autogen/mocs_compilation.obj: jogo_resitores_autogen/mocs_compilation.cpp.obj
 .PHONY : jogo_resitores_autogen/mocs_compilation.obj
 
@@ -358,6 +382,9 @@ help:
 	@echo ... jogo_resitores_autogen
 	@echo ... jogo_resitores_autogen_timestamp_deps
 	@echo ... jogo_resitores
+	@echo ... gamecontroller.obj
+	@echo ... gamecontroller.i
+	@echo ... gamecontroller.s
 	@echo ... jogo_resitores_autogen/mocs_compilation.obj
 	@echo ... jogo_resitores_autogen/mocs_compilation.i
 	@echo ... jogo_resitores_autogen/mocs_compilation.s

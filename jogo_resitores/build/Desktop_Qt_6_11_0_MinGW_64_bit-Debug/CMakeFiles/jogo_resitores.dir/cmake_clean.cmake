@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/jogo_resitores_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/jogo_resitores_autogen.dir/ParseCache.txt"
   "jogo_resitores_autogen"
+  "CMakeFiles/jogo_resitores.dir/gamecontroller.cpp.obj"
+  "CMakeFiles/jogo_resitores.dir/gamecontroller.cpp.obj.d"
   "CMakeFiles/jogo_resitores.dir/jogo_resitores_autogen/mocs_compilation.cpp.obj"
   "CMakeFiles/jogo_resitores.dir/jogo_resitores_autogen/mocs_compilation.cpp.obj.d"
   "CMakeFiles/jogo_resitores.dir/main.cpp.obj"

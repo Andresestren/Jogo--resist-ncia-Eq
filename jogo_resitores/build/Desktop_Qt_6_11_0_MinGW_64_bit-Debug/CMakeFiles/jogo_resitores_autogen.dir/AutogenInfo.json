@@ -347,6 +347,12 @@
 			null
 		],
 		[
+			"C:/Users/Andre Sestren/Desktop/jogo resistores/jogo_resitores/gamecontroller.h",
+			"MU",
+			"EWIEGA46WW/moc_gamecontroller.cpp",
+			null
+		],
+		[
 			"C:/Users/Andre Sestren/Desktop/jogo resistores/jogo_resitores/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -442,6 +448,11 @@
 	"SETTINGS_FILE" : "C:/Users/Andre Sestren/Desktop/jogo resistores/jogo_resitores/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/jogo_resitores_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Users/Andre Sestren/Desktop/jogo resistores/jogo_resitores/gamecontroller.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Users/Andre Sestren/Desktop/jogo resistores/jogo_resitores/main.cpp",
 			"MU",
