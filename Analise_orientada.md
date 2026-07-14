@@ -26,45 +26,8 @@ O jogador deve organizar e conectar esses resistores na área de montagem para c
 ---
 ##  Diagrama de Casos de Uso.
 
-```mermaid
-flowchart LR
-    %% Ator
-    Jogador(("👤<br>Jogador"))
+<img width="1089" height="612" alt="image" src="https://github.com/user-attachments/assets/752c4ef0-1f35-4da1-bbcf-fce5a61bf651" />
 
-    %% Limite do Sistema
-    subgraph Sistema [Jogo Resistor]
-        direction LR
-        
-        %% Casos de Uso (Formato de pílula)
-        UC1([Iniciar nível])
-        UC2([Ver Resistência])
-        UC3([Montar Circuito])
-        UC4([Solicitar Validação])
-        
-        UC5([Gerar Circuito])
-        
-        UC6([Definir Resistores<br>Apresentados])
-        UC7([Calcular Resistencia<br>inicial])
-        
-        UC8([Comparar<br>Resultados])
-        UC9([Calcular<br>Resistencia])
-    end
-
-    %% Associações (Linha contínua)
-    Jogador --- UC1
-    Jogador --- UC2
-    Jogador --- UC3
-    Jogador --- UC4
-
-    %% Relações de Inclusão (Linha tracejada com seta)
-    UC1 -. "<<include>>" .-> UC5
-    
-    UC5 -. "<<include>>" .-> UC6
-    UC5 -. "<<include>>" .-> UC7
-    
-    UC4 -. "<<include>>" .-> UC8
-    UC4 -. "<<include>>" .-> UC9
-```
 
 Detalhamento dos casos de uso:
 
